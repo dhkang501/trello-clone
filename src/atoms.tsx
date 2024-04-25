@@ -11,4 +11,9 @@ export const hourSelector = selector({
         const minutes = get(minuteState)
         return minutes/60;
     },
-})
+    // hours input이 miuntes atom을 수정하는 역할
+    set: ({set},newValue) => {
+        const minutes = Number(newValue) * 60;
+        set(minuteState, minutes);
+    }
+});
